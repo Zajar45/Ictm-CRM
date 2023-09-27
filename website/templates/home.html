@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h5> Welcome here </h5>
+
+{% else %}
+
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-8">
+            <div class="card">
+                <div class="card-body shadow">
+                    <div class="lo-login mt-4">
+                        
+                    </div>
+                
+                    <h3 class="card-title text-center">Login</h3>
+                    <form action="{% url 'home' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3 form-group">
+                            
+                            <input type="text" class="form-control"  name="username" placeholder="Username" value="" required>
+                        </div>
+                        <div class="mb-3 form-group">
+                            
+                            <input type="password" class="form-control"  name="password" placeholder="Email" value="" required>
+                        </div>
+                    
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-secondary W-100">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+
+{% endblock %}
