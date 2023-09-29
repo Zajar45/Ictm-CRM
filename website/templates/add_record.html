@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3"><br>
+<div class="card mt-2">
+    <div class="card-body">
+        <h4 class="card-title text-center">Add Record</h4>
+        <form action="{% url 'add-record' %}" method="POST">
+            {% csrf_token %}
+        
+            {{ form.as_p }}
+        
+            <button type="submit" class="btn btn-secondary mt-2">Add Record</button>
+        
+        </form>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

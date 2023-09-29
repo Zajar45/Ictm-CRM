@@ -4,7 +4,49 @@
 
 {% if user.is_authenticated %}
 
-<h5> Welcome here </h5>
+<br>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+
+            <tr>
+                <th>First_name</th>
+                <th>Last_name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip_code</th>
+                <th>Created_At</th>
+                <th>ID</th>
+            </tr>
+            </thead>
+            <tbody>
+
+                {% if records %}
+                        {% for record in records %}
+                    <tr>
+                        <td>{{ record.first_name }}</td>
+                        <td>{{ record.last_name  }}</td>
+                        <td>{{ record.email}}</td>
+                        <td>{{ record.phone}}</td>
+                        <td>{{ record.address}}</td>
+                        <td>{{ record.city}}</td>
+                        <td>{{ record.state}}</td>
+                        <td>{{ record.zip_code}}</td>
+                        <td>{{ record.created_at}}</td>
+                        <td><a href="{% url 'record' record.id %}">{{record.id}}</a></td>
+                        
+                    </tr>
+                    </tbody>
+                
+
+
+        {% endfor %}
+    </table>
+
+    {% endif %}
 
 {% else %}
 
